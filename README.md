@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ứng dụng Ghi chú PWA
 
 Ứng dụng ghi chú dùng HTML, CSS, JavaScript thuần và Bootstrap 4.6.2. Dữ liệu được lưu trên thiết bị bằng `localStorage`, nên có thể tạo, xem, cập nhật và xóa ghi chú khi ngoại tuyến. Ghi chú hỗ trợ ảnh chụp từ camera và thời gian nhắc nhở.
@@ -33,3 +34,6 @@ Manifest chưa khai báo icon để bạn tự thiết kế. Khi có ảnh biể
 4. Mở DevTools > Application để kiểm tra Manifest, Service Worker và Cache Storage; sau khi tải ứng dụng lần đầu, thử chuyển sang offline.
 
 Ghi chú hiện được lưu trên cùng trình duyệt và thiết bị; xóa dữ liệu trang web sẽ xóa các ghi chú.
+=======
+# Keep_GKWeb
+>>>>>>> 15b56e6b96f2408e141f82eb7f722ac755bdb586
