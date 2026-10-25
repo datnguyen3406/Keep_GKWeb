@@ -1,0 +1,10 @@
+{
+  "name": "Ứng dụng Ghi chú",
+  "short_name": "Ghi chú",
+  "description": "Ứng dụng ghi chú hoạt động ngoại tuyến.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#202124"
+}
