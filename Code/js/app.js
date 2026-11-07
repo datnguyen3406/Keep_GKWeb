@@ -257,19 +257,41 @@ document.querySelector("#menu-toggle").addEventListener("click", () => {
   document.body.classList.toggle("sidebar-collapsed");
 });
 
+const installButton = document.querySelector("#install-app");
+
+function isAppInstalled() {
+  return window.matchMedia("(display-mode: standalone)").matches
+    || window.navigator.standalone === true;
+}
+
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
+  if (isAppInstalled()) {
+    return;
+  }
   installPrompt = event;
-  document.querySelector("#install-app").hidden = false;
+  installButton.hidden = false;
 });
 
-document.querySelector("#install-app").addEventListener("click", async () => {
+installButton.addEventListener("click", async () => {
   if (!installPrompt) {
     return;
   }
-  await installPrompt.prompt();
+  try {
+    await installPrompt.prompt();
+    await installPrompt.userChoice;
+  } catch (error) {
+    setStatus(`Không thể cài đặt ứng dụng: ${error.message}`);
+  } finally {
+    installPrompt = null;
+    installButton.hidden = true;
+  }
+});
+
+window.addEventListener("appinstalled", () => {
   installPrompt = null;
-  document.querySelector("#install-app").hidden = true;
+  installButton.hidden = true;
+  setStatus("Ứng dụng đã được cài đặt.");
 });
 
 window.addEventListener("pagehide", () => camera.stop());
